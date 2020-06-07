@@ -10,10 +10,10 @@ ISSUE_URL = API_URL + "projects/{}/issues"
 
 class VCHostGitLab(AbstractVCHost):
 
-    def new_issue(self, tag: str, content: str) -> int:
+    def new_issue(self, title: str, tag: str, content: str) -> int:
         project_url = self.__get_project_url()
         query_args = {
-            "title": "This is a todo",
+            "title": title,
             "label": tag,
             "description": content,
         }

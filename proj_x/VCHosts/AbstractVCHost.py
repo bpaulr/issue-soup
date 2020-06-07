@@ -12,7 +12,7 @@ class AbstractVCHost(ABC):
         super().__init__()
 
     @abstractmethod
-    def new_issue(self, tag: str, content: str) -> int:
+    def new_issue(self, title: str, tag: str, content: str) -> int:
         pass
 
     def __repr__(self):
