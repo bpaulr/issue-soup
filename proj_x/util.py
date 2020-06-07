@@ -1,5 +1,6 @@
 from typing import Dict
 import yaml
+from urllib.parse import quote
 
 
 def dot_projx_parser(file_path: str, file_name: str = ".proj_x.yaml") -> Dict[str, str]:
@@ -14,3 +15,8 @@ def dot_projx_parser(file_path: str, file_name: str = ".proj_x.yaml") -> Dict[st
             config[k] = str(v)
 
     return config
+
+
+def create_query(query_args: Dict[str, str]) -> str:
+    query_args = [k + "=" + quote(v) for k, v in query_args.items()]
+    return "?" + '&'.join(query_args)

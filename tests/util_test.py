@@ -4,6 +4,7 @@ import pathlib
 import pytest
 
 from proj_x.util import dot_projx_parser
+from proj_x.util import create_query
 
 
 @pytest.mark.parametrize("content_str,expected", [
@@ -40,3 +41,13 @@ def test_dot_projx_parser(content_str, expected):
         file.write(content_str)
 
     assert dot_projx_parser(path, file_name) == expected
+
+
+@pytest.mark.parametrize("test_input,expected", [
+    ({
+         "title": "this is a title",
+         "description": "this is a description",
+     }, "?title=this%20is%20a%20title&description=this%20is%20a%20description"),
+])
+def test_create_query(test_input, expected):
+    assert create_query(test_input) == expected
