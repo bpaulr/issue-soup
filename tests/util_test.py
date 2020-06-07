@@ -6,6 +6,11 @@ import pytest
 from proj_x.util import dot_projx_parser
 from proj_x.util import create_query
 
+from tests.testing_util import create_test_temp_folder
+
+
+TEST_TEMP_LOC = "tests/temp"
+
 
 @pytest.mark.parametrize("content_str,expected", [
     ('\n'.join([
@@ -31,16 +36,12 @@ from proj_x.util import create_query
      }),
 ])
 def test_dot_projx_parser(content_str, expected):
-    path = str(pathlib.Path(__file__).parent.absolute()) + "/resources/temp/"
-    file_name = ".proj_x.yaml"
+    create_test_temp_folder(TEST_TEMP_LOC)
 
-    if not os.path.exists(path):
-        pathlib.Path(path).mkdir(parents=True, exist_ok=True)
-
-    with open(path + file_name, "w+") as file:
+    with open(os.path.join(TEST_TEMP_LOC, ".proj_x.yaml"), "w+") as file:
         file.write(content_str)
 
-    assert dot_projx_parser(path, file_name) == expected
+    assert dot_projx_parser(TEST_TEMP_LOC, ".proj_x.yaml") == expected
 
 
 @pytest.mark.parametrize("test_input,expected", [
