@@ -9,7 +9,7 @@ from proj_x.util import create_query
 from tests.testing_util import create_test_temp_folder
 
 
-TEST_TEMP_LOC = "tests/temp"
+TEST_TEMP_LOC = "temp"
 
 
 @pytest.mark.parametrize("content_str,expected", [
