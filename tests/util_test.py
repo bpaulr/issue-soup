@@ -18,16 +18,16 @@ from proj_x.util import create_query
     ('\n'.join([
         "VCHOST: gitlab",
         "PROJECT_ID: 19212576",
-        "labels: \n \
+        "LABELS: \n \
             - test1 \n \
             - test2 \n \
             - test3 \n \
             - test4 \n \
             - test5",
     ]), {
-        "VCHOST": "gitlab",
-        "PROJECT_ID": "19212576",
-        "labels": ["test1", "test2", "test3", "test4", "test5"],
+         "VCHOST": "gitlab",
+         "PROJECT_ID": "19212576",
+         "LABELS": ["test1", "test2", "test3", "test4", "test5"],
      }),
 ])
 def test_dot_projx_parser(content_str, expected):
