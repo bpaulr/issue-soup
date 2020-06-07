@@ -15,5 +15,9 @@ class AbstractVCHost(ABC):
     def new_issue(self, title: str, tag: str, content: str) -> int:
         pass
 
+    @abstractmethod
+    def create_labels(self) -> int:
+        pass
+
     def __repr__(self):
         return f"{type(self)}(config={self.config})"
