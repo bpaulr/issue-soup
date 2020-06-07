@@ -1,0 +1,9 @@
+venv/
+.idea/
+__pycache__/
+.vscode/
+*.iml
+.proj_x.yaml
+tests/resources/temp/
+.env
+.pytest_cache/
