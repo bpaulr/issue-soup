@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from proj_x.labels import find_labels
-from proj_x.labels import get_label_block
+from label_soup.labels import find_labels
+from label_soup.labels import get_label_block
 from tests.testing_util import create_files_for_label_tests
 
 TEST_TEMP_LOC = str(Path.joinpath(Path(__file__).parent.absolute(), "temp"))

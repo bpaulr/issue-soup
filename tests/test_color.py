@@ -1,7 +1,7 @@
 import pytest
 
-from proj_x.color import IllegalHexArgumentException
-from proj_x.color import parse_hex
+from label_soup.color import IllegalHexArgumentException
+from label_soup.color import parse_hex
 
 
 @pytest.mark.parametrize("test_input,expected", [

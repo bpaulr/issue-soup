@@ -4,8 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from proj_x.util import create_query
-from proj_x.util import dot_projx_parser
+from label_soup.util import create_query
+from label_soup.util import dot_labelsoup_parser
 from tests.testing_util import create_test_temp_folder
 
 TEST_TEMP_LOC = str(Path.joinpath(Path(__file__).parent.absolute(), "temp"))
@@ -58,15 +58,15 @@ LABELS:
         },
     }),
 ])
-def test_dot_projx_parser(content_str, expected):
+def test_dot_labelsoup_parser(content_str, expected):
     create_test_temp_folder(TEST_TEMP_LOC)
 
-    with open(os.path.join(TEST_TEMP_LOC, ".proj_x.yaml"), "w+") as file:
+    with open(os.path.join(TEST_TEMP_LOC, ".label-soup.yaml"), "w+") as file:
         file.write(content_str)
-    print(json.dumps(dot_projx_parser(Path(TEST_TEMP_LOC), ".proj_x.yaml"), sort_keys=True, indent=2))
+    print(json.dumps(dot_labelsoup_parser(Path(TEST_TEMP_LOC), ".label-soup.yaml"), sort_keys=True, indent=2))
     print(json.dumps(expected, sort_keys=True, indent=2))
     print()
-    assert json.dumps(dot_projx_parser(Path(TEST_TEMP_LOC), ".proj_x.yaml"), sort_keys=True) \
+    assert json.dumps(dot_labelsoup_parser(Path(TEST_TEMP_LOC), ".label-soup.yaml"), sort_keys=True) \
            == json.dumps(expected, sort_keys=True)
 
 

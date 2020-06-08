@@ -3,7 +3,7 @@ venv/
 __pycache__/
 .vscode/
 *.iml
-.proj_x.yaml
+.label-soup.yaml
 tests/temp/
 .env
 .pytest_cache/
