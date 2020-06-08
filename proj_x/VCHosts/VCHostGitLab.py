@@ -27,7 +27,7 @@ class VCHostGitLab(AbstractVCHost):
         issue_url = self.__get_url(ISSUE_URL)
         query_args = {
             "title": title,
-            "label": tag,
+            "labels": tag.lower(),
             "description": content,
         }
         issue_query = proj_x.util.create_query(query_args)
