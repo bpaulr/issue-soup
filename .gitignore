@@ -4,6 +4,6 @@ __pycache__/
 .vscode/
 *.iml
 .proj_x.yaml
-tests/resources/temp/
+tests/temp/
 .env
 .pytest_cache/
