@@ -4,8 +4,8 @@ from urllib.parse import quote
 
 import yaml
 
-from label_soup.VCHosts.AbstractVCHost import AbstractVCHost
-from label_soup.VCHosts.VCHostGitLab import VCHostGitLab
+from issue_soup.VCHosts.AbstractVCHost import AbstractVCHost
+from issue_soup.VCHosts.VCHostGitLab import VCHostGitLab
 
 HOSTS = {
     "gitlab": VCHostGitLab,
@@ -13,7 +13,7 @@ HOSTS = {
 }
 
 
-def dot_labelsoup_parser(file_path: Path, file_name: str = ".label-soup.yaml") -> Dict[str, str]:
+def dot_issuesoup_parser(file_path: Path, file_name: str = ".issue-soup.yaml") -> Dict[str, str]:
     config = {}
 
     with open(Path.joinpath(file_path, file_name), "r") as file:

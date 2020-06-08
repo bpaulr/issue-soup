@@ -2,9 +2,9 @@ from os import getenv
 
 import requests
 
-import label_soup.util
-from label_soup.VCHosts.AbstractVCHost import AbstractVCHost
-from label_soup.color import parse_hex
+import issue_soup.util
+from issue_soup.VCHosts.AbstractVCHost import AbstractVCHost
+from issue_soup.color import parse_hex
 
 API_URL = "https://gitlab.com/api/v4/"
 PROJECT_URL = API_URL + "projects/{}/"
@@ -19,7 +19,7 @@ class VCHostGitLab(AbstractVCHost):
         label_url = self.__get_url(LABEL_URL)
         # Feature: allow all attributes from labels api to be specified in yaml
         for label, details in labels.items():
-            label_query = label_soup.util.create_query({
+            label_query = issue_soup.util.create_query({
                 "name": label.strip(),
                 "description": details["description"] if details["description"] is not None else "",
                 "color": parse_hex(details["color_hex"]) if details["color_hex"] is not None else "#428BCA",
@@ -33,7 +33,7 @@ class VCHostGitLab(AbstractVCHost):
             "labels": label,
             "description": content,
         }
-        issue_query = label_soup.util.create_query(query_args)
+        issue_query = issue_soup.util.create_query(query_args)
         response = requests.post(issue_url + issue_query, headers={"PRIVATE-TOKEN": getenv("API_KEY")})
         return response.json()["iid"]
 

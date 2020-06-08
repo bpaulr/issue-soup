@@ -1,4 +1,4 @@
-# Label-Soup
+# Issue-Soup
 
 A package for creating version control issues, with custom labels/tags, from
 in-line code comments.

@@ -2,8 +2,8 @@ from pathlib import Path
 
 import pytest
 
-from label_soup.labels import find_labels
-from label_soup.labels import get_label_block
+from issue_soup.labels import find_labels
+from issue_soup.labels import get_label_block
 from tests.testing_util import create_files_for_label_tests
 
 TEST_TEMP_LOC = str(Path.joinpath(Path(__file__).parent.absolute(), "temp"))
@@ -36,7 +36,3 @@ def test_get_label_block(test_input, expected):
     print(test_input)
     print(get_label_block(test_input[0], test_input[1]))
     assert get_label_block(test_input[0], test_input[1]) == expected
-
-
-if __name__ == '__main__':
-    test_get_label_block((Path.joinpath(Path(TEST_TEMP_LOC), "file1.py"), 6), ("Bug: add function adds negative y,", "Bug: add function adds negative y, need to investigate in the future as this is a critical bug"))
